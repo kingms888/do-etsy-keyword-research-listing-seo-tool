@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Etsy Keyword Research &amp; Listing SEO Tool | Etsy Seller Optimizer</title>
+    <meta name="description" content="Free Etsy keyword research and listing SEO tool. Generate optimized tags, search terms, and listing ideas for your Etsy shop. Boost visibility and sales.">
+    <meta name="keywords" content="etsy seo, keyword tool etsy, etsy listing optimizer, etsy search tags, etsy product seo">
+    <meta name="author" content="Etsy Seller Toolkit">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://example.com/etsy-keyword-tool">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Etsy Keyword Research &amp; Listing SEO Tool">
+    <meta property="og:description" content="Free Etsy keyword research and listing SEO tool. Generate optimized tags, search terms, and listing ideas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/etsy-keyword-tool">
+    <meta property="og:locale" content="en_US">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f9f7f4;
+            color: #2d2a24;
+            line-height: 1.5;
+            padding: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+        header {
+            text-align: center;
+            padding: 24px 0 12px;
+        }
+        header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #1e1b18;
+        }
+        header p {
+            color: #5e5a55;
+            font-size: 1rem;
+            margin-top: 6px;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1e1b18;
+        }
+        .card label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: #2d2a24;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #d6d2cb;
+            border-radius: 14px;
+            font-size: 1rem;
+            background: #fefcf9;
+            transition: border 0.2s;
+            font-family: inherit;
+            resize: vertical;
+        }
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #2a7a62;
+            box-shadow: 0 0 0 3px rgba(42,122,98,0.15);
+        }
+        .btn {
+            background: #2a7a62;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            padding: 14px 28px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            display: inline-block;
+            width: 100%;
+            margin-top: 12px;
+        }
+        .btn:hover {
+            background: #1f604c;
+        }
+        .btn:active {
+            transform: scale(0.97);
+        }
+        .btn-secondary {
+            background: #e8e4de;
+            color: #2d2a24;
+            margin-top: 8px;
+        }
+        .btn-secondary:hover {
+            background: #dbd6ce;
+        }
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+        .tag {
+            background: #eef6f2;
+            color: #1e5a4a;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #cfe3da;
+        }
+        .result-area {
+            background: #f6f4f0;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 16px;
+            min-height: 60px;
+            word-break: break-word;
+        }
+        .result-area ul {
+            list-style: none;
+            padding: 0;
+        }
+        .result-area li {
+            padding: 6px 0;
+            border-bottom: 1px solid #e5e0d9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .result-area li:last-child {
+            border-bottom: none;
+        }
+        .badge {
+            background: #dce9e3;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.8rem;
+            color: #1e5a4a;
+        }
+        .ad-placeholder {
+            background: #f0ede8;
+            border-radius: 16px;
+            padding: 18px 16px;
+            text-align: center;
+            color: #5e5a55;
+            font-size: 0.9rem;
+            border: 1px dashed #cbc6be;
+            margin: 20px 0;
+        }
+        .ad-placeholder span {
+            font-weight: 600;
+            color: #2d2a24;
+        }
+        .affiliate-section {
+            background: #f6f4f0;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .affiliate-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #1e1b18;
+        }
+        .affiliate-section ul {
+            list-style: none;
+        }
+        .affiliate-section li {
+            padding: 6px 0;
+        }
+        .affiliate-section a {
+            color: #2a7a62;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .affiliate-section a:hover {
+            text-decoration: underline;
+        }
+        .privacy-note {
+            background: #f0ede8;
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 0.85rem;
+            color: #4a4640;
+            margin-top: 24px;
+            text-align: center;
+            border: 1px solid #e0dbd4;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0 10px;
+            font-size: 0.85rem;
+            color: #7a7570;
+        }
+        .flex-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .flex-row .btn {
+            flex: 1;
+            min-width: 120px;
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.6rem; }
+            .card { padding: 18px 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Etsy Keyword &amp; SEO Tool</h1>
+            <p>Generate optimized tags, search terms, and listing ideas for your Etsy shop</p>
+        </header>
+
+        <!-- Main Tool Card -->
+        <div class="card">
+            <h2>📝 Describe your product</h2>
+            <label for="productInput">What are you selling? (e.g., "handmade wool beanie")</label>
+            <textarea id="productInput" rows="2" placeholder="e.g., personalized leather journal, silver moon necklace, organic cotton baby onesie">handmade wool beanie</textarea>
+            
+            <div class="flex-row">
+                <button class="btn" id="generateBtn">✨ Generate Keywords &amp; Tags</button>
+                <button class="btn btn-secondary" id="clearBtn">Clear</button>
+            </div>
+
+            <!-- Results -->
+            <div id="resultsContainer" class="result-area" style="display:none;">
+                <div style="font-weight:600; margin-bottom:8px;">📌 Suggested Tags (13 max)</div>
+                <div id="tagsOutput" class="tag-group"></div>
+                <div style="margin-top:16px; font-weight:600;">🔎 Related Search Terms</div>
+                <ul id="termsOutput"></ul>
+                <div style="margin-top:16px; font-weight:600;">💡 Listing Title Ideas</div>
+                <ul id="titlesOutput"></ul>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-placeholder">
+            <span>📢 Ad Placeholder</span><br>
+            <span style="font-size:0.85rem;">Sponsored: <a href="#" style="color:#2a7a62;">Etsy Seller Toolkit Pro</a> — Advanced analytics &amp; keyword tracking</span>
+        </div>
+
+        <!-- Affiliate / Resource Section -->
+        <div class="affiliate-section">
+            <h3>📚 Recommended Resources for Etsy Sellers</h3>
+            <ul>
+                <li>📘 <a href="#">Etsy SEO Guide 2025</a> – Boost your rankings</li>
+                <li>📊 <a href="#">Keyword Research Spreadsheet</a> – Track your tags</li>
+                <li>🛠️ <a href="#">Etsy Listing Optimizer Chrome Extension</a></li>
+                <li>🎓 <a href="#">Etsy Seller Academy (Free Course)</a></li>
+            </ul>
+            <p style="font-size:0.85rem; color:#5e5a55; margin-top:8px;">Some links are affiliate links. We may earn a small commission at no extra cost to you.</p>
+        </div>
+
+        <!-- Privacy Note -->
+        <div class="privacy-note">
+            🔒 Privacy: Events may be counted anonymously for product improvement. No personal data collected. 
+            We use anonymous analytics to improve this tool.
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Etsy Seller Toolkit. Not affiliated with Etsy, Inc.
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- Privacy / Metrics ----------
+            window.reportEvent = function(name, payload) {
+                if (typeof window.ORGANISM_METRICS_ENDPOINT === 'string' && window.ORGANISM_METRICS_ENDPOINT.length > 0) {
+                    try {
+                        const body = JSON.stringify({ event: name, payload: payload || {}, timestamp: new Date().toISOString() });
+                        fetch(window.ORGANISM_METRICS_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: body,
+                            keepalive: true
+                        }).catch(function(){});
+                    } catch(e) {}
+                }
+            };
+
+            // ---------- DOM refs ----------
+            const productInput = document.getElementById('productInput');
+            const generateBtn = document.getElementById('generateBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const tagsOutput = document.getElementById('tagsOutput');
+            const termsOutput = document.getElementById('termsOutput');
+            const titlesOutput = document.getElementById('titlesOutput');
+
+            // ---------- Keyword generation logic ----------
+            function generateKeywords(productText) {
+                const text = productText.trim().toLowerCase();
+                if (!text) return { tags: [], terms: [], titles: [] };
+
+                // Break into words and bigrams
+                const words = text.split(/\s+/).filter(w => w.length > 1);
+                const bigrams = [];
+                for (let i = 0; i < words.length - 1; i++) {
+                    bigrams.push(words[i] + ' ' + words[i+1]);
+                }
+
+                // Base tags from input
+                let baseTags = [];
+                // Add original phrases
+                if (text.length <= 20) baseTags.push(text);
+                // Add individual words (skip very generic)
+                const generic = ['handmade', 'custom', 'personalized', 'unique', 'gift', 'organic', 'vintage', 'artisan'];
+                words.forEach(w => {
+                    if (w.length > 2 && !generic.includes(w)) baseTags.push(w);
+                });
+                // Add bigrams
+                bigrams.forEach(b => baseTags.push(b));
+
+                // Expand with common Etsy modifiers
+                const modifiers = ['gift', 'for her', 'for him', 'home decor', 'accessory', 'wall art', 'jewelry', 'clothing', 'baby', 'wedding', 'birthday', 'christmas', 'holiday', 'boho', 'minimalist', 'rustic', 'modern', 'vintage style', 'unisex', 'personalized gift', 'custom made', 'handmade gift', 'unique gift', 'stocking stuffer', 'under 20', 'under 50'];
+                const expanded = [];
+                baseTags.forEach(t => {
+                    expanded.push(t);
+                    // Add a few modifiers if tag is short
+                    if (t.split(' ').length <= 2) {
+                        const pick = modifiers.slice(0, 3);
+                        pick.forEach(m => {
+                            if (!expanded.includes(t + ' ' + m)) expanded.push(t + ' ' + m);
+                        });
+                    }
+                });
+
+                // Deduplicate and limit to 20 (we'll show 13 tags)
+                const uniqueTags = [...new Set(expanded)].filter(t => t.length > 1 && t.length <= 30).slice(0, 20);
+
+                // For terms: use baseTags + some modifiers, remove duplicates, limit to 10
+                const termSet = new Set();
+                words.forEach(w => { if (w.length > 2) termSet.add(w); });
+                bigrams.forEach(b => termSet.add(b));
+                // Add some extra
+                ['etsy', 'handmade', 'gift idea', 'unique', 'custom'].forEach(t => termSet.add(t));
+                const terms = [...termSet].filter(t => t.length > 1).slice(0, 10);
+
+                // Title ideas: combine phrases
+                const titleIdeas = [];
+                if (words.length >= 2) {
+                    titleIdeas.push(`Personalized ${text} – Custom Gift for Any Occasion`);
+                    titleIdeas.push(`Handmade ${text} | Unique Etsy Find`);
+                    titleIdeas.push(`${text} – Perfect Gift for Her/Him`);
+                    titleIdeas.push(`Vintage Style ${text} – Boho Home Decor`);
+                    titleIdeas.push(`Custom ${text} – Made to Order`);
+                } else {
+                    titleIdeas.push(`Handmade ${text} – Unique Gift Idea`);
+                    titleIdeas.push(`Personalized ${text} – Custom Order`);
+                    titleIdeas.push(`Vintage ${text} – Etsy Favorite`);
+                }
+                // Ensure at least 3
+                while (titleIdeas.length < 3) {
+                    titleIdeas.push(`Beautiful ${text} – Shop Now`);
+                }
+
+                return { tags: uniqueTags.slice(0, 13), terms: terms.slice(0, 8), titles: titleIdeas.slice(0, 3) };
+            }
+
+            function renderResults(productText) {
+                const data = generateKeywords(productText);
+                if (!data.tags.length && !data.terms.length) {
+                    resultsContainer.style.display = 'none';
+                    return;
+                }
+                resultsContainer.style.display = 'block';
+
+                // Tags
+                tagsOutput.innerHTML = '';
+                data.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'tag';
+                    span.textContent = tag;
+                    tagsOutput.appendChild(span);
+                });
+
+                // Terms
+                termsOutput.innerHTML = '';
+                data.terms.forEach(term => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span>${term}</span> <span class="badge">suggested</span>`;
+                    termsOutput.appendChild(li);
+                });
+
+                // Titles
+                titlesOutput.innerHTML = '';
+                data.titles.forEach(title => {
+                    const li = document.createElement('li');
+                    li.textContent = title;
+                    titlesOutput.appendChild(li);
+                });
+
+                // Report generation event
+                reportEvent('keyword_generated', { inputLength: productText.trim().length, tagsCount: data.tags.length });
+            }
+
+            function handleGenerate() {
+                const val = productInput.value.trim();
+                if (!val) {
+                    resultsContainer.style.display = 'none';
+                    return;
+                }
+                renderResults(val);
+            }
+
+            function handleClear() {
+                productInput.value = '';
+                resultsContainer.style.display = 'none';
+                productInput.focus();
+                reportEvent('tool_cleared', {});
+            }
+
+            // ---------- Event listeners ----------
+            generateBtn.addEventListener('click', handleGenerate);
+            clearBtn.addEventListener('click', handleClear);
+
+            // Auto-run on page load with default example
+            document.addEventListener('DOMContentLoaded', function() {
+                // Render default example
+                renderResults(productInput.value);
+                reportEvent('tool_loaded', {});
+            });
+
+            // Also allow Enter key in textarea (but not required)
+            productInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleGenerate();
+                }
+            });
+
+        })();
+    </script>
+</body>
+</html>
